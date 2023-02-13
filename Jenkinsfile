@@ -31,9 +31,9 @@ pipeline{
 	    }
 	    stage('Upload War To Nexus'){
 	        steps{
-	            echo "${POM_GROUPID}"
-	            echo "${POM_VERSION}"
-	            echo "${POM_ARTIFACTID}"
+	            //echo "${POM_GROUPID}"
+	            //echo "${POM_VERSION}"
+	            //echo "${POM_ARTIFACTID}"
 	            nexusArtifactUploader artifacts: [
 	                [
 	                    artifactId: 'spring-hibernate',
