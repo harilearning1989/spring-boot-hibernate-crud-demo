@@ -33,7 +33,7 @@ pipeline{
 	        steps{
 	            nexusArtifactUploader artifacts: [
 	                [
-	                    artifactId: 'demo',
+	                    artifactId: 'spring-hibernate',
 	                    classifier: '',
 	                    file: 'target/spring-hibernate.war',
 	                    type: 'war'
