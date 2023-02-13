@@ -15,7 +15,7 @@ pipeline{
     	grdlCmd = "${gradleHome}/bin/gradle"
 	}
 	stages{
-	    stage('Gradle'){
+	    stage('Maven'){
 	        steps{
                 withEnv(["JAVA_HOME=${tool 'JAVA_HOME'}", "PATH=${tool 'JAVA_HOME'}/bin:${env.PATH}"]){
                     git 'https://github.com/harilearning1989/spring-boot-hibernate-crud-demo.git'
@@ -29,5 +29,24 @@ pipeline{
                 }
             }
 	    }
+	    stage('Upload War To Nexus'){
+	        steps{
+	            nexusArtifactUploader artifacts: [
+	                [
+	                    artifactId: 'demo',
+	                    classifier: '',
+	                    file: 'target/spring-hibernate.war',
+	                    type: 'war'
+	                ]
+                ],
+                credentialsId: 'Nexus3',
+                groupId: 'com.howtodoinjava',
+                nexusUrl: 'localhost:8081/',
+                nexusVersion: 'nexus3',
+                protocol: 'http',
+                repository: 'http://localhost:8081/repository/hari-release',
+                version: '0.0.1-SNAPSHOT'
+            }
+        }
 	}
 }
