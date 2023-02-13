@@ -31,6 +31,9 @@ pipeline{
 	    }
 	    stage('Upload War To Nexus'){
 	        steps{
+	            echo "${POM_GROUPID}"
+	            echo "${POM_VERSION}"
+	            echo "${POM_ARTIFACTID}"
 	            nexusArtifactUploader artifacts: [
 	                [
 	                    artifactId: 'spring-hibernate',
@@ -44,7 +47,7 @@ pipeline{
                 nexusUrl: 'localhost:8081/',
                 nexusVersion: 'nexus3',
                 protocol: 'http',
-                repository: 'http://localhost:8081/repository/hari-release',
+                repository: 'repository/hari-release',
                 version: '0.0.1-SNAPSHOT'
             }
         }
