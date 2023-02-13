@@ -22,6 +22,10 @@ pipeline{
                     sh 'java -version'
                     echo "Gradle"
                     sh "${grdlCmd} -v"
+
+                    echo "Maven"
+                    sh "mvn -v"
+                    sh "mvn clean install -DskipTests=true"
                 }
             }
 	    }
