@@ -24,8 +24,8 @@ pipeline{
                     sh "${grdlCmd} -v"
 
                     echo "Maven"
-                    sh "mvnCmd -v"
-                    sh "mvnCmd clean install -DskipTests=true"
+                    sh "${mvnCmd} -v"
+                    sh "${mvnCmd} clean install -DskipTests=true"
                 }
             }
 	    }
