@@ -35,7 +35,7 @@ pipeline{
 	                [
 	                    artifactId: 'spring-hibernate',
 	                    classifier: '',
-	                    file: 'target/spring-hibernate.war',
+	                    file: 'target/spring-hibernate',
 	                    type: 'war'
 	                ]
                 ],
