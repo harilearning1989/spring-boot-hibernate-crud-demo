@@ -22,7 +22,6 @@ pipeline{
                     sh 'java -version'
                     echo "Gradle"
                     sh "${grdlCmd} -v"
-                    sh "${grdlCmd} clean build"
                 }
             }
 	    }
