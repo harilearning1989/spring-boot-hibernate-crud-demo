@@ -18,7 +18,7 @@ pipeline{
 	    stage('Gradle'){
 	        steps{
                 withEnv(["JAVA_HOME=${tool 'JAVA_HOME'}", "PATH=${tool 'JAVA_HOME'}/bin:${env.PATH}"]){
-                    //git 'https://github.com/harilearning1989/spring-rest-crops.git'
+                    git 'https://github.com/harilearning1989/spring-boot-hibernate-crud-demo.git'
                     sh 'java -version'
                     echo "Gradle"
                     sh "${grdlCmd} -v"
